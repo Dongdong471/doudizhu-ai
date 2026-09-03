@@ -1,5 +1,8 @@
 name: Build DoudizhuAI IPA
 
+# 云端 macOS 机器自带 Xcode，编译出 .ipa 供 AltStore 侧载。
+# 使用方法：GitHub 仓库 → Actions → 本工作流 → Run workflow → 下载产物 DoudizhuAI.ipa
+
 on:
   workflow_dispatch:
 
@@ -24,6 +27,7 @@ jobs:
             -target DoudizhuAI \
             -configuration Release \
             -sdk iphoneos \
+            IPHONEOS_DEPLOYMENT_TARGET=16.0 \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGN_IDENTITY="" \
             build
