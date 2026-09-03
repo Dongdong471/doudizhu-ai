@@ -17,8 +17,10 @@ enum Theme {
 
 // MARK: - 系统"屏幕录制目标选择器"（点击后在系统弹窗里选择本 App 扩展）
 struct BroadcastPickerView: UIViewRepresentable {
-    func makeUIView(context: Context) -> RPBroadcastPickerView {
-        let v = RPBroadcastPickerView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+    func makeUIView(context: Context) -> RPSystemBroadcastPickerView
+ {
+        let v = RPSystemBroadcastPickerView
+(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
         v.showsMicrophoneButton = false
         if let url = Bundle.main.url(forResource: "DoudizhuAIBroadcast",
                                      withExtension: "appex", subdirectory: "PlugIns"),
@@ -27,7 +29,8 @@ struct BroadcastPickerView: UIViewRepresentable {
         }
         return v
     }
-    func updateUIView(_ uiView: RPBroadcastPickerView, context: Context) {}
+    func updateUIView(_ uiView: RPSystemBroadcastPickerView
+, context: Context) {}
 }
 
 // MARK: - 主界面（Tab 容器）
