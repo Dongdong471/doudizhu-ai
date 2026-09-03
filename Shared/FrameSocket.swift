@@ -112,7 +112,7 @@ final class FrameSocketClient {
         addr.sin_addr.s_addr = inet_addr(host)
         let r = withUnsafePointer(to: &addr) {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
-                connect(s, $0, socklen_t(MemoryLayout<sockaddr_in>.size))
+                Darwin.connect(s, $0, socklen_t(MemoryLayout<sockaddr_in>.size))
             }
         }
         if r == 0 {
